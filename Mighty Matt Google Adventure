@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Game variables
+player="Mighty Matt"
+prize="a kiss from Nikita and Kaitlin"
+consequence="fired and disappeared into the Matrix"
+
+# Game introduction
+echo "Welcome to Mighty Matt's Google Adventure!"
+echo "Your goal is to win the game and earn $prize."
+echo "If you lose, you'll face $consequence."
+
+# Randomly generate a game outcome
+random_number=$((RANDOM % 2))
+
+if [[ $random_number -eq 0 ]]; then
+    echo "Congratulations, $player! You won the game!"
+    echo "You've earned $prize."
+else
+    echo "Unfortunately, $player, you lost the game."
+    echo "You've been $consequence."
+fi
