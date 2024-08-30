@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Function to calculate inflation-adjusted value
+function calculate_inflation() {
+  # Get the initial value, inflation rate, and number of years
+  read -p "Enter the initial value: " initial_value
+  read -p "Enter the inflation rate (as a percentage): " inflation_rate
+  read -p "Enter the number of years: " num_years
+
+  # Convert inflation rate to a decimal
+  inflation_rate_decimal=$(echo "scale=2; $inflation_rate / 100" | bc)
+
+  # Calculate the inflation-adjusted value
+  inflation_adjusted_value=$(echo "scale=2; $initial_value * (1 + $inflation_rate_decimal)^$num_years" | bc)
+
+  # Print the result
+  echo "The inflation-adjusted value after $num_years is: $inflation_adjusted_value"
+}
+
+# Call the function
+calculate_inflation
+
+
